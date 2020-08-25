@@ -11,7 +11,7 @@
   <p id="my-id"></p>
   <textarea id="their-id"></textarea>
   <button id="make-call">発信</button>
-  <button id="js-displaymedia-trigger">共有</button>
+  <button id="displaymedia">共有</button>
   <video id="their-video" autoplay playsinline></video>
 
   <script>
@@ -68,14 +68,12 @@
   });
   
   //add s maruyama_test
-  const displaymediaTrigger = document.getElementById('js-displaymedia-trigger');
-  displaymediaTrigger.addEventListener('click', onClickDisplayMedia);
-  function onClickDisplayMedia() {
+  document.getElementById('displaymedia').onclick = () => {
     messages.textContent += '=== DisplayMedia ===\n';  
     const stream = navigator.mediaDevices.getDisplayMedia({ video: true });
     const call = peer.call(theirID, stream);
     setEventListener(call);
-  } 
+  };
   //add e maruyama_test
   
   </script>
