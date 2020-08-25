@@ -163,7 +163,11 @@ const Peer = window.Peer;
     displaymediaTrigger.addEventListener('click', onClickDisplayMedia);
     function onClickDisplayMedia() {
       messages.textContent += '=== DisplayMedia ===\n';  
-      localStream = navigator.mediaDevices.getDisplayMedia({ video: true });
+      const mediaStream = navigator.mediaDevices.getDisplayMedia({ video: true });
+      room = peer.joinRoom(roomId.value, {
+        mode: getRoomModeByHash(),
+        stream: mediaStream,
+      });
 //      const stream = await navigator.mediaDevices.getDisplayMedia({ video: true });
 //      const call = peer.call('remote-peerId', stream);
 //        try {
