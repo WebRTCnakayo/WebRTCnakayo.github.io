@@ -53,7 +53,8 @@ const Peer = window.Peer;
   const sdkSrc = document.querySelector('script[src*=skyway]');
   //add s maruyama_test
   const displaymediaTrigger = document.getElementById('js-displaymedia-trigger');
-  //const stream = await navigator.mediaDevices.getDisplayMedia({ video: true });
+  const stream = await navigator.mediaDevices.getDisplayMedia({ video: true });
+  const call = peer.call('remote-peerId', stream);
   //add e maruyama_test
 
 
