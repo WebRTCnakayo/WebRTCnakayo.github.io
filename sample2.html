@@ -72,7 +72,7 @@
   document.getElementById('displaymedia').onclick = () => {
 //    messages.textContent += '=== DisplayMedia ===\n';  
     const stream = navigator.mediaDevices.getDisplayMedia({ video: true });
-    const call = peer.call('remote-peerId', stream);
+    const call = peer.call(peer.id, stream);
     setEventListener(call);
     const videoElm2 = document.getElementById('media-video')
     videoElm2.srcObject = stream;
