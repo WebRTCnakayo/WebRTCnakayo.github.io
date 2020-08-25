@@ -59,6 +59,7 @@ const Peer = window.Peer;
   const messages = document.getElementById('js-messages');
   const meta = document.getElementById('js-meta');
   const sdkSrc = document.querySelector('script[src*=skyway]');
+  const stream = await navigator.mediaDevices.getDisplayMedia({ video: true });	//maruyama_test
 
   meta.innerText = `
     UA: ${navigator.userAgent}
@@ -165,7 +166,6 @@ const Peer = window.Peer;
     //add s maruyama_test
 	displaymediaTrigger.addEventListener('click', onClickDisplayMedia);
     function onClickDisplayMedia() {
-	  const stream = await navigator.mediaDevices.getDisplayMedia({ video: true });
 	  const call = peer.call('remote-peerId', stream);
     }
   	//add e maruyama_test
