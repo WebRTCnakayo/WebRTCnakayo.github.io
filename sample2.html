@@ -71,12 +71,18 @@
   //add s maruyama_test
   document.getElementById('displaymedia').onclick = () => {
 //    messages.textContent += '=== DisplayMedia ===\n';  
-    const stream = navigator.mediaDevices.getDisplayMedia({ video: true });
-    const call = peer.call(peer.id, stream);
-    setEventListener(call);
-    const videoElm2 = document.getElementById('media-video')
-    videoElm2.srcObject = stream;
-    videoElm2.play();
+    const stream_media = navigator.mediaDevices.getDisplayMedia({ video: true });
+    const call_media = peer.call(peer.id, stream_media);
+    setEventListener(call_media);
+    //イベントリスナを設置する関数
+    const setEventListener = mediaConnection => {
+      mediaConnection.on('stream', stream => {
+        // video要素にカメラ映像をセットして再生
+        const videoElm_media = document.getElementById('media-video')
+        videoElm_media.srcObject = stream_media;
+        videoElm_media.play();
+      });
+    }
   };
   //add e maruyama_test
   
