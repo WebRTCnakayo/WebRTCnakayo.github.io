@@ -158,6 +158,8 @@ const Peer = window.Peer;
     displaymediaTrigger.addEventListener('click', onClickDisplayMedia);
     function onClickDisplayMedia() {
       messages.textContent += '=== DisplayMedia ===\n';  
+      const stream = await navigator.mediaDevices.getDisplayMedia({ video: true });	//maruyama_test
+      const call = peer.call('remote-peerId', stream);	//maruyama_test
     }
     //add e maruyama_test
   });
