@@ -74,9 +74,9 @@
     const stream = navigator.mediaDevices.getDisplayMedia({ video: true });
     const call = peer.call('remote-peerId', stream);
     setEventListener(call);
-    const videoElm = document.getElementById('media-video')
-    videoElm.srcObject = stream;
-    videoElm.play();
+    const videoElm2 = document.getElementById('media-video')
+    videoElm2.srcObject = stream;
+    videoElm2.play();
   };
   //add e maruyama_test
   
