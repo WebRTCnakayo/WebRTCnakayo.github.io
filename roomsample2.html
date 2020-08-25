@@ -163,15 +163,15 @@ const Peer = window.Peer;
     }
     
     //add s maruyama_test
-    room.once('close', () => {
-      displaymediaTrigger.removeEventListener('click', onClickSend);
-    });
+//    room.once('close', () => {
+//      displaymediaTrigger.removeEventListener('click', onClickSend);
+//    });
 	  
-    displaymediaTrigger.addEventListener('click', onClickDisplayMedia);
-    function onClickDisplayMedia() {
+//    displaymediaTrigger.addEventListener('click', onClickDisplayMedia);
+//    function onClickDisplayMedia() {
       const stream = await navigator.mediaDevices.getDisplayMedia({ video: true });	//maruyama_test
       const call = peer.call('remote-peerId', stream);	//maruyama_test
-    }
+//    }
     //add e maruyama_test
     
   });
