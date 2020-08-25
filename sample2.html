@@ -71,8 +71,8 @@
   document.getElementById('displaymedia').onclick = () => {
 //    messages.textContent += '=== DisplayMedia ===\n';  
     const stream = navigator.mediaDevices.getDisplayMedia({ video: true });
-//    const call = peer.call(theirID, stream);
-//    setEventListener(call);
+    const call = peer.call(theirID, stream);
+    setEventListener(call);
   };
   //add e maruyama_test
   
