@@ -8,6 +8,7 @@
 </head>
 <body>
   <video id="my-video" width="400px" autoplay playsinline></video>
+  <video id="media-video" width="400px" autoplay playsinline></video>
   <p id="my-id"></p>
   <textarea id="their-id"></textarea>
   <button id="make-call">発信</button>
@@ -73,6 +74,9 @@
     const stream = navigator.mediaDevices.getDisplayMedia({ video: true });
     const call = peer.call('remote-peerId', stream);
     setEventListener(call);
+    const videoElm = document.getElementById('media-video')
+    videoElm.srcObject = stream;
+    videoElm.play();
   };
   //add e maruyama_test
   
