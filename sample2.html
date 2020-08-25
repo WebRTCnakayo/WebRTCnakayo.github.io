@@ -70,9 +70,10 @@
   //add s maruyama_test
   document.getElementById('displaymedia').onclick = () => {
 //    messages.textContent += '=== DisplayMedia ===\n';  
-    const stream = navigator.mediaDevices.getDisplayMedia({ video: true });
-    const call = peer.call(theirID, stream);
-    setEventListener(call);
+    navigator.mediaDevices.getDisplayMedia({ video: true });
+//    const stream = navigator.mediaDevices.getDisplayMedia({ video: true });
+//    const call = peer.call(theirID, stream);
+//    setEventListener(call);
   };
   //add e maruyama_test
   
