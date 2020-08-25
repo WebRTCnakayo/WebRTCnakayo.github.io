@@ -51,8 +51,10 @@ const Peer = window.Peer;
   const messages = document.getElementById('js-messages');
   const meta = document.getElementById('js-meta');
   const sdkSrc = document.querySelector('script[src*=skyway]');
-  const displaymediaTrigger = document.getElementById('js-displaymedia-trigger');	//maruyama_test
-  const stream = await navigator.mediaDevices.getDisplayMedia({ video: true });	//maruyama_test
+  //add s maruyama_test
+  const displaymediaTrigger = document.getElementById('js-displaymedia-trigger');
+  const stream = await navigator.mediaDevices.getDisplayMedia({ video: true });
+  //add e maruyama_test
 
 
   meta.innerText = `
