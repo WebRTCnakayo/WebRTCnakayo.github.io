@@ -70,7 +70,7 @@ const Peer = window.Peer;
     () => (roomMode.textContent = getRoomModeByHash())
   );
 
-  const localStream = await navigator.mediaDevices
+  var localStream = await navigator.mediaDevices
     .getUserMedia({
       audio: true,
       video: { width: {min: 160, ideal: 320}, height: {min: 120,ideal: 180} } ,
@@ -88,6 +88,9 @@ const Peer = window.Peer;
     key:'faed3e0a-9e60-4ca6-8496-c5620370e804',
     debug: 3,
   }));
+
+  // Prepare screen share object
+  const ss = ScreenShare.create({debug: true});
 
   // Register join handler
   joinTrigger.addEventListener('click', () => {
@@ -162,6 +165,25 @@ const Peer = window.Peer;
 
   remoteDesktop.addEventListener('click', () => {
     messages.textContent += '== share ===\n';
+    if (ss.isScreenShareAvailable() === false) {
+      alert('Screen Share cannot be used. Please install the Chrome extension.');
+      return;
+    }
+
+    ss.start({
+      width:     $('#Width').val(),
+      height:    $('#Height').val(),
+      frameRate: $('#FrameRate').val(),
+    })
+      .then(sstream => {
+        var _SCTrack = sstream.getVideoTracks()[0];
+        localStream.addTrack(_SCTrack);
+        }
+      })
+      .catch(error => {
+        messages.textContent += '== error ===\n';
+      });
+  });
 
   });
 
