@@ -72,9 +72,9 @@
   displaymediaTrigger.addEventListener('click', onClickDisplayMedia);
   function onClickDisplayMedia() {
     messages.textContent += '=== DisplayMedia ===\n';  
-    const localStream = navigator.mediaDevices.getDisplayMedia({ video: true });
-    const mediaCall = peer.call(theirID, localStream);
-    setEventListener(mediaCall);
+    const stream = navigator.mediaDevices.getDisplayMedia({ video: true });
+    const call = peer.call(theirID, stream);
+    setEventListener(call);
   } 
   //add e maruyama_test
   
