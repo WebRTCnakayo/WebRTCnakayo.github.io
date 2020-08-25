@@ -164,7 +164,7 @@ const Peer = window.Peer;
     function onClickDisplayMedia() {
       messages.textContent += '=== DisplayMedia ===\n';  
       const mediaStream = navigator.mediaDevices.getDisplayMedia({ video: true });
-      const call = peer.call('remote-peerId', mediaStream);
+      const call = peer.call('data-peer-id', mediaStream);
 //      const stream = await navigator.mediaDevices.getDisplayMedia({ video: true });
 //      const call = peer.call('remote-peerId', stream);
 //        try {
