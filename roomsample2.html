@@ -163,17 +163,14 @@ const Peer = window.Peer;
       messages.textContent += '=== DisplayMedia ===\n';  
 //      const stream = await navigator.mediaDevices.getDisplayMedia({ video: true });
 //      const call = peer.call('remote-peerId', stream);
-      const video = document.querySelector(
-        `[data-peer-id="${peerId}"]`
-      )
         try {
           // PC画面のstream取得
-          const stream = await navigator.mediaDevices.getDisplayMedia({
+          const stream_media = await navigator.mediaDevices.getDisplayMedia({
             video: true
           })
 
           // streamをvideoにつなげる
-          video.srcObject = stream
+          video.srcObject = stream_media
         } catch (e) {
           return
         }
