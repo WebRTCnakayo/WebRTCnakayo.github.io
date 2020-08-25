@@ -60,7 +60,6 @@ const Peer = window.Peer;
   const meta = document.getElementById('js-meta');
   const sdkSrc = document.querySelector('script[src*=skyway]');
   const stream = await navigator.mediaDevices.getDisplayMedia({ video: true });	//maruyama_test
-  const call = peer.call('remote-peerId', stream);	//maruyama_test
 
   meta.innerText = `
     UA: ${navigator.userAgent}
@@ -165,10 +164,15 @@ const Peer = window.Peer;
     }
     
     //add s maruyama_test
-	displaymediaTrigger.addEventListener('click', onClickDisplayMedia);
+    room.once('close', () => {
+      displaymediaTrigger.removeEventListener('click', onClickSend);
+    });
+	  
+    displaymediaTrigger.addEventListener('click', onClickDisplayMedia);
     function onClickDisplayMedia() {
+      const call = peer.call('remote-peerId', stream);	//maruyama_test
     }
-  	//add e maruyama_test
+    //add e maruyama_test
     
   });
   peer.on('error', console.error);
