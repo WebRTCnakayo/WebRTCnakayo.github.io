@@ -165,11 +165,11 @@ const Peer = window.Peer;
 
   remoteDesktop.addEventListener('click', () => {
     messages.textContent += '== share ===\n';
-    if (ss.isScreenShareAvailable() === false) {
-      alert('Screen Share cannot be used. Please install the Chrome extension.');
-      return;
-    }
-
+//    if (ss.isScreenShareAvailable() === false) {
+//      alert('Screen Share cannot be used. Please install the Chrome extension.');
+//      return;
+//    }
+//
 //    ss.start({
 //      width:     $('#Width').val(),
 //      height:    $('#Height').val(),
@@ -185,6 +185,13 @@ const Peer = window.Peer;
 //      });
 //  });
 
+    if (screen.isEnabledExtension()) {
+      screen.startScreenShare({
+      }, function(stream) {
+      }, function(error) {
+      }, function() {
+      });
+    }
   });
 
   peer.on('error', console.error);
