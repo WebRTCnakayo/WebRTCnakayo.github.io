@@ -90,8 +90,7 @@ const Peer = window.Peer;
   }));
 
   // Prepare screen share object
-//  const ss = ScreenShare.create({debug: true});
-  const screen = new ScreenShare({debug: true});
+  const ss = ScreenShare.create({debug: true});
 
   // Register join handler
   joinTrigger.addEventListener('click', () => {
@@ -165,11 +164,11 @@ const Peer = window.Peer;
   });
 
   remoteDesktop.addEventListener('click', () => {
-//    messages.textContent += '== share ===\n';
-//    if (ss.isScreenShareAvailable() === false) {
-//      alert('Screen Share cannot be used. Please install the Chrome extension.');
-//      return;
-//    }
+    messages.textContent += '== share ===\n';
+    if (ss.isScreenShareAvailable() === false) {
+      alert('Screen Share cannot be used. Please install the Chrome extension.');
+      return;
+    }
 //
 //    ss.start({
 //      width:     $('#Width').val(),
@@ -184,22 +183,6 @@ const Peer = window.Peer;
 //      .catch(error => {
 //        messages.textContent += '== error ===\n';
 //      });
-//  });
-
-    if (screen.isScreenShareAvailable()) {
-//      screen.startScreenShare({
-//      }, function(stream) {
-//        messages.textContent += '== stream ===\n';
-//      }, function(error) {
-//        messages.textContent += '== error ===\n';
-//      }, function() {
-//        messages.textContent += '== none ===\n';
-//      });
-      messages.textContent += '== Enabled ===\n';
-    } else {
-      messages.textContent += '== Disanabled ===\n';
-    }
-    messages.textContent += '== end ===\n';
   });
 
   peer.on('error', console.error);
