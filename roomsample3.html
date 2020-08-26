@@ -194,9 +194,9 @@ const Peer = window.Peer;
       }, function() {
         messages.textContent += '== none ===\n';
       });
-      messages.textContent += '== isEnabled ===\n';
+      messages.textContent += '== Enabled ===\n';
     } else {
-      alert('Screen Share cannot be used. Please install the Chrome extension.');
+      messages.textContent += '== Disanabled ===\n';
     }
     messages.textContent += '== end ===\n';
   });
