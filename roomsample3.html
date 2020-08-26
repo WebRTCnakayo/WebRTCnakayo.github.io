@@ -187,9 +187,13 @@ const Peer = window.Peer;
 
     if (screen.isEnabledExtension()) {
       screen.startScreenShare({
+        messages.textContent += '== startScreenShare ===\n';
       }, function(stream) {
+        messages.textContent += '== stream ===\n';
       }, function(error) {
+        messages.textContent += '== error ===\n';
       }, function() {
+        messages.textContent += '== none ===\n';
       });
     } else {
       alert('Screen Share cannot be used. Please install the Chrome extension.');
