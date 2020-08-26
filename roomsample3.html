@@ -42,7 +42,6 @@
   <script>
 
 const Peer = window.Peer;
-const screen = window.Screen;
 
 (async function main() {
   const localVideo = document.getElementById('js-local-stream');
@@ -91,7 +90,8 @@ const screen = window.Screen;
   }));
 
   // Prepare screen share object
-  const ss = ScreenShare.create({debug: true});
+//  const ss = ScreenShare.create({debug: true});
+  const screen = window.Screen;
 
   // Register join handler
   joinTrigger.addEventListener('click', () => {
@@ -187,14 +187,14 @@ const screen = window.Screen;
 //  });
 
     if (screen.isEnabledExtension()) {
-      screen.startScreenShare({
-      }, function(stream) {
-        messages.textContent += '== stream ===\n';
-      }, function(error) {
-        messages.textContent += '== error ===\n';
-      }, function() {
-        messages.textContent += '== none ===\n';
-      });
+//      screen.startScreenShare({
+//      }, function(stream) {
+//        messages.textContent += '== stream ===\n';
+//      }, function(error) {
+//        messages.textContent += '== error ===\n';
+//      }, function() {
+//        messages.textContent += '== none ===\n';
+//      });
       messages.textContent += '== Enabled ===\n';
     } else {
       messages.textContent += '== Disanabled ===\n';
