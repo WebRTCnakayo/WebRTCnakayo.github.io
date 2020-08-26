@@ -37,6 +37,7 @@
       <p class="meta" id="js-meta"></p>
     </div>
     <script src="https://cdn.webrtc.ecl.ntt.com/skyway-latest.js"></script>
+    <script src="https://cdn.webrtc.ecl.ntt.com/screenshare-latest.js"></script>
 
   <script>
 
@@ -161,15 +162,6 @@ const Peer = window.Peer;
       localText.value = '';
     }
   });
-
-  function isScreenShareAvailable() {
-    if ('__skywayWebRTCScreenShareExtensionAvailable__' in window) {
-      return true;
-    }
-    messages.textContent += '== cannot ===\n';
-
-    return false;
-  }
 
   remoteDesktop.addEventListener('click', () => {
     messages.textContent += '== share ===\n';
