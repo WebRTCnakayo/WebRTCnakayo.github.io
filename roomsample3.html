@@ -187,7 +187,6 @@ const Peer = window.Peer;
 
     if (screen.isEnabledExtension()) {
       screen.startScreenShare({
-        messages.textContent += '== startScreenShare ===\n';
       }, function(stream) {
         messages.textContent += '== stream ===\n';
       }, function(error) {
