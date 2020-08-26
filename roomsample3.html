@@ -36,44 +36,6 @@
       </div>
       <p class="meta" id="js-meta"></p>
     </div>
-    <!-- Steps -->
-    <div class="pure-u-1-3" id="control">
-        <h2>Test Screen Share Demo</h2>
-        <label>Media source selection:</label>
-        <p><a href="#" class="pure-button pure-button-success" id="start-screen">Screen</a></p>
-        <p><label>width : </label><input id="Width" size="5" value="640"></p>
-        <p><label>height : </label><input id="Height" size="5" value="480"></p>
-        <p><label>frameRate : </label><input id="FrameRate" size="5" value="1"></p>
-        <p><a href="#" class="pure-button pure-button-success" id="start-camera">Camera</a></p>
-
-
-        <!-- Get local audio/video stream -->
-        <div id="step1">
-            <p>Please allow the camera and microphone to be used.</p>
-            <div id="step1-error">
-                <p>The camera or the microphone cannot be accessed. Please confirm that you have the correct permissions set in your browser</p>
-                <a href="#" class="pure-button pure-button-error" id="step1-retry">Retry getting media</a>
-            </div>
-        </div>
-
-        <!-- Make calls to others -->
-        <div id="step2">
-            <p>My peer id: <span id="my-id">...</span></p>
-            <h3>Call</h3>
-            <div class="pure-form">
-                <label for="otherpeerid">Recipient peer id:</label>
-                <input id="otherpeerid">
-                <a href="#" class="pure-button pure-button-success" id="make-call">Call</a>
-            </div>
-        </div>
-
-        <!-- Call in progress -->
-        <div id="step3">
-            <p>Connected to: <span id="their-id">...</span></p>
-            <p><a href="#" class="pure-button pure-button-error" id="stop-screen">End screenshare</a></p>
-            <p><a href="#" class="pure-button pure-button-error" id="end-call">End call</a></p>
-        </div>
-    </div>
     <script src="https://cdn.webrtc.ecl.ntt.com/skyway-latest.js"></script>
     <script src="https://cdn.webrtc.ecl.ntt.com/screenshare-latest.js"></script>
 
