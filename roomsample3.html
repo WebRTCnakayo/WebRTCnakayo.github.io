@@ -167,6 +167,7 @@ const Peer = window.Peer;
     if ('__skywayWebRTCScreenShareExtensionAvailable__' in window) {
       return true;
     }
+    messages.textContent += '== cannot ===\n';
 
     return false;
   }
