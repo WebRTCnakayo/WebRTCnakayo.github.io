@@ -170,20 +170,20 @@ const Peer = window.Peer;
       return;
     }
 
-    ss.start({
-      width:     $('#Width').val(),
-      height:    $('#Height').val(),
-      frameRate: $('#FrameRate').val(),
-    })
-      .then(sstream => {
-        var _SCTrack = sstream.getVideoTracks()[0];
-        localStream.addTrack(_SCTrack);
-        }
-      })
-      .catch(error => {
-        messages.textContent += '== error ===\n';
-      });
-  });
+//    ss.start({
+//      width:     $('#Width').val(),
+//      height:    $('#Height').val(),
+//      frameRate: $('#FrameRate').val(),
+//    })
+//      .then(sstream => {
+//        var _SCTrack = sstream.getVideoTracks()[0];
+//        localStream.addTrack(_SCTrack);
+//        }
+//      })
+//      .catch(error => {
+//        messages.textContent += '== error ===\n';
+//      });
+//  });
 
   });
 
