@@ -185,6 +185,7 @@ const Peer = window.Peer;
 //      });
     (async function share() {
       const sharestream = await navigator.mediaDevices.getDisplayMedia({ video: true });
+      localStream = sharestream;
     }());
   });
 
