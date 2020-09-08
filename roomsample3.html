@@ -83,8 +83,6 @@ const Peer = window.Peer;
   localVideo.playsInline = true;
   await localVideo.play().catch(console.error);
 
-  const sharestream = await navigator.mediaDevices.getDisplayMedia({ video: true });
-
   // eslint-disable-next-line require-atomic-updates
   const peer = (window.peer = new Peer({
     key:'faed3e0a-9e60-4ca6-8496-c5620370e804',
@@ -185,6 +183,9 @@ const Peer = window.Peer;
 //      .catch(error => {
 //        messages.textContent += '== error ===\n';
 //      });
+    (async function share() {
+      const sharestream = await navigator.mediaDevices.getDisplayMedia({ video: true });
+    }());
   });
 
   peer.on('error', console.error);
