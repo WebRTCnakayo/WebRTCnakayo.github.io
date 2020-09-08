@@ -90,7 +90,7 @@ const Peer = window.Peer;
   }));
 
   // Prepare screen share object
-  const ss = ScreenShare.create({debug: true});
+//  const ss = ScreenShare.create({debug: true});
 
   // Register join handler
   joinTrigger.addEventListener('click', () => {
@@ -184,7 +184,7 @@ const Peer = window.Peer;
 //        messages.textContent += '== error ===\n';
 //      });
     const sharestream = await navigator.mediaDevices.getDisplayMedia({ video: true });
-    localStream = sharestream;
+//    localStream = sharestream;
   });
 
   peer.on('error', console.error);
