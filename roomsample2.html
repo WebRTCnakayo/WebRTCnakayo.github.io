@@ -164,8 +164,10 @@ const Peer = window.Peer;
     displaymediaTrigger.addEventListener('click', onClickDisplayMedia);
     function onClickDisplayMedia() {
       messages.textContent += '=== DisplayMedia ===\n';  
-      const mediaStream = navigator.mediaDevices.getDisplayMedia({ video: true });
-      room.replaceStream(mediaStream);
+      (async function share() {
+        const mediaStream = navigator.mediaDevices.getDisplayMedia({ video: true });
+        room.replaceStream(mediaStream);
+      }());
       //      setEventListener(mediaCall);
 //      const stream = await navigator.mediaDevices.getDisplayMedia({ video: true });
 //      const call = peer.call('remote-peerId', stream);
