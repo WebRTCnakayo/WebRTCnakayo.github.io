@@ -161,8 +161,9 @@ const Peer = window.Peer;
       localText.value = '';
     }
     //add s maruyama_test
-    displaymediaTrigger.addEventListener('click', onClickDisplayMedia);
-    function onClickDisplayMedia() {
+//    displaymediaTrigger.addEventListener('click', onClickDisplayMedia);
+//    function onClickDisplayMedia() {
+    displaymediaTrigger.addEventListener('click', () => {
       messages.textContent += '=== DisplayMedia ===\n';  
       (async function share() {
         const mediaStream = await navigator.mediaDevices.getDisplayMedia({ video: true });
@@ -182,7 +183,7 @@ const Peer = window.Peer;
 //        } catch (e) {
 //          return
 //        }
-    }
+//    }
     //add e maruyama_test
   });
 
