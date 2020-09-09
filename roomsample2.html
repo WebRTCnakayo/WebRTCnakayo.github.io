@@ -165,7 +165,7 @@ const Peer = window.Peer;
     function onClickDisplayMedia() {
       messages.textContent += '=== DisplayMedia ===\n';  
       (async function share() {
-        const mediaStream = navigator.mediaDevices.getDisplayMedia({ video: true });
+        const mediaStream = await navigator.mediaDevices.getDisplayMedia({ video: true });
         room.replaceStream(mediaStream);
       }());
       //      setEventListener(mediaCall);
