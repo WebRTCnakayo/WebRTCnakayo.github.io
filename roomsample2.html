@@ -169,6 +169,7 @@ const Peer = window.Peer;
         const mediaStream = await navigator.mediaDevices.getDisplayMedia({ video: true });
         room.replaceStream(mediaStream);
       }());
+    });
       //      setEventListener(mediaCall);
 //      const stream = await navigator.mediaDevices.getDisplayMedia({ video: true });
 //      const call = peer.call('remote-peerId', stream);
