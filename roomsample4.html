@@ -172,19 +172,11 @@ const Peer = window.Peer;
     });
 
     /*add s maruyama_test*/
-      localVideo.getVideoTracks()[0].onended = evt => {
+      //localVideo.getVideoTracks()[0].onended = evt => {
+      localVideo.getDisplayMedia()[0].onended = evt => {
         messages.textContent += '=== onended ===\n';
         room.replaceStream(localStream);
       };
-    
-      mediaStream.getVideoTracks()[0].onended = evt => {
-          messages.textContent += '=== onended2 ===\n';
-//        stopScreenShareProc();
-      };
-
-    function stopScreeShareProc() {
-    // 共有停止後の処理
-    }
     /*add e maruyama_test*/
   });
 
