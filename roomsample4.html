@@ -172,7 +172,7 @@ const Peer = window.Peer;
     });
 
     /*add s maruyama_test*/
-      room.getVideoTracks()[0].onended = evt => {
+      localVideo.getVideoTracks()[0].onended = evt => {
         messages.textContent += '=== onended ===\n';
         room.replaceStream(localStream);
       };
