@@ -177,14 +177,10 @@ const Peer = window.Peer;
         room.replaceStream(localStream);
       };
     
-    room.start({...}).then(function(mediaStream) {
       mediaStream.getVideoTracks()[0].onended = evt => {
-     messages.textContent += '=== onended2 ===\n';
+          messages.textContent += '=== onended2 ===\n';
 //        stopScreenShareProc();
       };
-    }).catch(function(error) {
-    // error callback
-    });
 
     function stopScreeShareProc() {
     // 共有停止後の処理
