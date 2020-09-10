@@ -172,7 +172,7 @@ const Peer = window.Peer;
     });
 
     /*add s maruyama_test*/
-    document.getElementById('video').addEventListener('suspend', function(e) {
+    document.getElementById('localVideo').addEventListener('suspend', function(e) {
       console.log(e)
       messages.textContent += '=== suspend ===\n';
     })
