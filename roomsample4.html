@@ -172,7 +172,7 @@ const Peer = window.Peer;
     });
 
     /*add s maruyama_test*/
-    const [screenVideoTrack] = mediaStream.getVideoTracks();
+    const [screenVideoTrack] = room.getVideoTracks();
     screenVideoTrack.addEventListener('ended', () => {
       messages.textContent += '=== ended ===\n';
       // UIを戻すなりなんなり
