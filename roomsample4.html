@@ -172,11 +172,11 @@ const Peer = window.Peer;
     });
 
     /*add s maruyama_test*/
-    room.addEventListener('suspend', () => {
-      messages.textContent += '=== suspend ===\n';
-      room.replaceStream(localStream);
-//      await localVideo.play().catch(console.error);
-    })
+    const [screenVideoTrack] = screenStream.getVideoTracks();
+    screenVideoTrack.addEventListener('ended', () => {
+      messages.textContent += '=== ended ===\n';
+      // UIを戻すなりなんなり
+    }, { once: true });
     /*add e maruyama_test*/
   });
 
