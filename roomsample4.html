@@ -172,10 +172,11 @@ const Peer = window.Peer;
     });
 
     /*add s maruyama_test*/
-    mediaStream.addEventListener('suspend', function(e) {
+    room.addEventListener('suspend', function(e) {
 //      console.log(e)
       messages.textContent += '=== suspend ===\n';
       room.replaceStream(localStream);
+//      await localVideo.play().catch(console.error);
     })
     /*add e maruyama_test*/
   });
