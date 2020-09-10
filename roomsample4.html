@@ -172,35 +172,19 @@ const Peer = window.Peer;
     });
 
     /*add s maruyama_test*/
-//    screenshare.start({...}).then(function(mediaStream) {
+    screenshare.start({...}).then(function(mediaStream) {
 //      mediaStream.getVideoTracks()[0].onended = evt => {
 //        stopScreenShareProc();
 //      };
-//    }).catch(function(error) {
-//    // error callback
-//    });
+    }).catch(function(error) {
+    // error callback
+    });
 
     function stopScreeShareProc() {
       // 共有停止後の処理
       room.replaceStream(localStream);
     }
     /*add e maruyama_test*/
-      //      setEventListener(mediaCall);
-//      const stream = await navigator.mediaDevices.getDisplayMedia({ video: true });
-//      const call = peer.call('remote-peerId', stream);
-//        try {
-//          // PC画面のstream取得
-//          const stream_media = await navigator.mediaDevices.getDisplayMedia({
-//            video: true
-//          })
-
-          // streamをvideoにつなげる
-//          video.srcObject = stream_media
-//        } catch (e) {
-//          return
-//        }
-//    }
-    //add e maruyama_test
   });
 
   peer.on('error', console.error);
