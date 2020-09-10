@@ -172,13 +172,13 @@ const Peer = window.Peer;
     });
 
     /*add s maruyama_test*/
-    screenshare.start({...}).then(function(mediaStream) {
-      mediaStream.getVideoTracks()[0].onended = evt => {
-        stopScreenShareProc();
-      };
-    }).catch(function(error) {
-    // error callback
-    });
+//    screenshare.start({...}).then(function(mediaStream) {
+//      mediaStream.getVideoTracks()[0].onended = evt => {
+//        stopScreenShareProc();
+//      };
+//    }).catch(function(error) {
+//    // error callback
+//    });
 
     function stopScreeShareProc() {
       // 共有停止後の処理
