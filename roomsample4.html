@@ -172,18 +172,10 @@ const Peer = window.Peer;
     });
 
     /*add s maruyama_test*/
-    room.start({...}).then(function(mediaStream) {
-//      mediaStream.getVideoTracks()[0].onended = evt => {
-//        stopScreenShareProc();
-//      };
-//    }).catch(function(error) {
-//    // error callback
-    });
-
-    function stopScreeShareProc() {
-      // 共有停止後の処理
-      room.replaceStream(localStream);
-    }
+    document.getElementById('video').addEventListener('suspend', function(e) {
+      console.log(e)
+      messages.textContent += '=== suspend ===\n';
+    })
     /*add e maruyama_test*/
   });
 
