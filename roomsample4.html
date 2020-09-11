@@ -168,6 +168,14 @@ const Peer = window.Peer;
         room.replaceStream(mediaStream);
       }());
       /**/
+      room.getDisplayMedia()[0].onended = () => {
+        messages.textContent += '=== onended ===\n';
+      };
+
+      room.addEventListener('suspend', () => {
+        messages.textContent += '=== suspend Listener ===\n';
+      });
+
       room.addEventListener('suspend', () => {
         messages.textContent += '=== suspend Listener ===\n';
       });
