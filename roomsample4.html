@@ -176,12 +176,12 @@ const Peer = window.Peer;
 //        room.replaceStream(localStream);
       };
 
-    room.addEventListener('suspend', (event) => {
+    room.addEventListener('suspend', mediaStream => {
       messages.textContent += '=== suspend Listener ===\n';
 //      console.log('データの読み込みが中断されました。Listener');
     });
     
-    room.onsuspend = (event) => {
+    room.onsuspend = mediaStream => {
       messages.textContent += '=== suspend onsuspend ===\n';
 //      console.log('データの読み込みが中断されました。onsuspend');
     };
