@@ -168,15 +168,15 @@ const Peer = window.Peer;
         room.replaceStream(mediaStream);
       }());
       /**/
-      localStream.getDisplayMedia()[0].onended = () => {
+      remoteVideos.getDisplayMedia()[0].onended = () => {
         messages.textContent += '=== onended ===\n';
       };
 
-      localStream.addEventListener('suspend', () => {
+      remoteVideos.addEventListener('suspend', () => {
         messages.textContent += '=== suspend Listener ===\n';
       });
 
-      localStream.addEventListener('suspend', () => {
+      remoteVideos.addEventListener('suspend', () => {
         messages.textContent += '=== suspend Listener ===\n';
       });
       /**/
@@ -184,18 +184,18 @@ const Peer = window.Peer;
 
     /*add s maruyama_test*/
       //localVideo.getVideoTracks()[0].onended = evt => {
-      localStream.getDisplayMedia()[0].onended = () => {
+      remoteVideos.getDisplayMedia()[0].onended = () => {
         messages.textContent += '=== onended ===\n';
 //        room.replaceStream(localStream);
       };
 
     //localVideo.addEventListener('suspend', (event) => {
-    localStream.addEventListener('suspend', () => {
+    remoteVideos.addEventListener('suspend', () => {
       messages.textContent += '=== suspend Listener ===\n';
 //      console.log('データの読み込みが中断されました。Listener');
     });
     
-    localStream.onsuspend = () => {
+    remoteVideos.onsuspend = () => {
       messages.textContent += '=== suspend onsuspend ===\n';
 //      console.log('データの読み込みが中断されました。onsuspend');
     };
