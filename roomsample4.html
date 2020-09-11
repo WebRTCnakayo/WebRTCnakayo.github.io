@@ -177,6 +177,14 @@ const Peer = window.Peer;
         messages.textContent += '=== onended ===\n';
         room.replaceStream(localStream);
       };
+
+    localVideo.addEventListener('suspend', (event) => {
+      console.log('データの読み込みが中断されました。Listener');
+    });
+    
+    video.onsuspend = (event) => {
+      console.log('データの読み込みが中断されました。onsuspend');
+    };
     /*add e maruyama_test*/
   });
 
