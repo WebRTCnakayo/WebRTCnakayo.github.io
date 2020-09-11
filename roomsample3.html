@@ -167,6 +167,10 @@ const Peer = window.Peer;
       (async function share() {
         const sharestream = await navigator.mediaDevices.getDisplayMedia({ video: true });
         room.replaceStream(sharestream);
+
+        sharestream.getVideoTracks()[0].onended = evt => {
+          messages.textContent += '== share end ===\n';
+        };
       }());
     });
   });
