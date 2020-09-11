@@ -21,6 +21,7 @@
           <button id="js-join-trigger">入室</button>
           <button id="js-leave-trigger">退出</button>
           <button id="js-displaymedia-trigger">共有</button>
+          <button id="js-displayrelease-trigger">共有解除</button>
         </div>
 
         <div class="remote-streams" id="js-remote-streams"></div>
@@ -54,6 +55,7 @@ const Peer = window.Peer;
   const sdkSrc = document.querySelector('script[src*=skyway]');
   //add s maruyama_test
   const displaymediaTrigger = document.getElementById('js-displaymedia-trigger');
+  const displayreleaseTrigger = document.getElementById('js-displayrelease-trigger');
   //add e maruyama_test
 
 
@@ -167,43 +169,12 @@ const Peer = window.Peer;
         const mediaStream = await navigator.mediaDevices.getDisplayMedia({ video: true });
         room.replaceStream(mediaStream);
       }());
-      /**/
-      remoteVideos.getDisplayMedia()[0].onended = () => {
-        messages.textContent += '=== onended ===\n';
-      };
-
-      remoteVideos.addEventListener('suspend', () => {
-        messages.textContent += '=== suspend Listener ===\n';
-      });
-
-      remoteVideos.addEventListener('suspend', () => {
-        messages.textContent += '=== suspend Listener ===\n';
-      });
-      /**/
     });
 
-    /*add s maruyama_test*/
-      //localVideo.getVideoTracks()[0].onended = evt => {
-      remoteVideos.getDisplayMedia()[0].onended = () => {
-        messages.textContent += '=== onended ===\n';
-//        room.replaceStream(localStream);
-      };
-
-    //localVideo.addEventListener('suspend', (event) => {
-    //remoteVideos.addEventListener('suspend', () => {
-    remoteVideos.addEventListener('pause', () => {
-      messages.textContent += '=== suspend Listener ===\n';
-//      console.log('データの読み込みが中断されました。Listener');
+    displayreleaseTrigger.addEventListener('click', () => {
+      messages.textContent += '=== DisplayRelease ===\n';
+      mediaStream.close();
     });
-    
-    remoteVideos.onsuspend = () => {
-      messages.textContent += '=== suspend onsuspend ===\n';
-//      console.log('データの読み込みが中断されました。onsuspend');
-    };
-    
-    document.getElementById('js-remote-streams').addEventListener('suspend', () => {
-      messages.textContent += '=== suspend ById ===\n';
-    })
     /*add e maruyama_test*/
   });
 
