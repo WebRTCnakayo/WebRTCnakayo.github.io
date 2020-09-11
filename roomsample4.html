@@ -90,23 +90,7 @@ const Peer = window.Peer;
   localVideo.srcObject = localStream;
   localVideo.playsInline = true;
   await localVideo.play().catch(console.error);
-  /**/
-  navigator.mediaDevices
-    .getUserMedia({ audio: true })
-    .then(stream => {
-      audioContext = new (window.AudioContext || window.webkitAudioContext)();
-      source = audioContext.createMediaStreamSource(
-        localStream
-      );
-      audioDestination = audioContext.createMediaStreamDestination();
-      gainNode = audioContext.createGain();
-      source.connect(gainNode);
-      gainNode.connect(audioDestination);
-      gainNode.gain.setValueAtTime(0.5, audioContext.currentTime);
-      audioPlayer.srcObject = audioDestination.stream;
-    })
-    .catch(e => alert("error" + e.message));
-  /**/
+
 
   // eslint-disable-next-line require-atomic-updates
   const peer = (window.peer = new Peer({
@@ -121,6 +105,23 @@ const Peer = window.Peer;
     if (!peer.open) {
       return;
     }
+    /**/
+    navigator.mediaDevices
+    .getUserMedia({ audio: true })
+    .then(stream => {
+      audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      source = audioContext.createMediaStreamSource(
+        localStream
+      );
+      audioDestination = audioContext.createMediaStreamDestination();
+      gainNode = audioContext.createGain();
+      source.connect(gainNode);
+      gainNode.connect(audioDestination);
+      gainNode.gain.setValueAtTime(0.5, audioContext.currentTime);
+      audioPlayer.srcObject = audioDestination.stream;
+    })
+    .catch(e => alert("error" + e.message));
+    /**/
 
     const room = peer.joinRoom(roomId.value, {
       mode: getRoomModeByHash(),
