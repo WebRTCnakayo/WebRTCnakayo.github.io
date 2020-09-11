@@ -22,6 +22,7 @@
           <button id="js-leave-trigger">退出</button>
           <button id="js-displaymedia-trigger">共有</button>
           <button id="js-displayrelease-trigger">共有解除</button>
+          <input type="range" id="volume"></input>
         </div>
 
         <div class="remote-streams" id="js-remote-streams"></div>
@@ -56,6 +57,11 @@ const Peer = window.Peer;
   //add s maruyama_test
   const displaymediaTrigger = document.getElementById('js-displaymedia-trigger');
   const displayreleaseTrigger = document.getElementById('js-displayrelease-trigger');
+  const volumeSlider = document.getElementById("volume");
+  let audioContext = null;
+  let source = null;
+  let audioDestination = null;
+  let gainNode = null;
   //add e maruyama_test
 
 
@@ -84,6 +90,18 @@ const Peer = window.Peer;
   localVideo.srcObject = localStream;
   localVideo.playsInline = true;
   await localVideo.play().catch(console.error);
+  /**/
+  audioContext = new (window.AudioContext || window.webkitAudioContext)();
+  source = audioContext.createMediaStreamSource(
+    localStream
+  );
+  audioDestination = audioContext.createMediaStreamDestination();
+  gainNode = audioContext.createGain();
+  source.connect(gainNode);
+  gainNode.connect(audioDestination);
+  gainNode.gain.setValueAtTime(0.5, audioContext.currentTime);
+  audioPlayer.srcObject = audioDestination.stream;
+  /**/
 
   // eslint-disable-next-line require-atomic-updates
   const peer = (window.peer = new Peer({
@@ -176,6 +194,13 @@ const Peer = window.Peer;
       mediaStream.close();
     });
     /*add e maruyama_test*/
+    /**/
+    volumeSlider.addEventListener("change", e => {
+      const volume = e.target.value;
+      gainNode.gain.setValueAtTime(volume / 100, audioContext.currentTime);
+      console.log("gain:", gainNode.gain.value);
+    });
+    /**/
   });
 
   peer.on('error', console.error);
