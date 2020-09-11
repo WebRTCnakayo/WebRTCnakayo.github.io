@@ -170,6 +170,7 @@ const Peer = window.Peer;
 
         sharestream.getVideoTracks()[0].onended = evt => {
           messages.textContent += '== share end ===\n';
+          room.replaceStream(localStream);
         };
       }());
     });
