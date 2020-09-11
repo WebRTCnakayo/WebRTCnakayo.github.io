@@ -190,7 +190,8 @@ const Peer = window.Peer;
       };
 
     //localVideo.addEventListener('suspend', (event) => {
-    remoteVideos.addEventListener('suspend', () => {
+    //remoteVideos.addEventListener('suspend', () => {
+    remoteVideos.addEventListener('pause', () => {
       messages.textContent += '=== suspend Listener ===\n';
 //      console.log('データの読み込みが中断されました。Listener');
     });
