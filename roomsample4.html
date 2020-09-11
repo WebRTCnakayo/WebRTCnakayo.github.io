@@ -171,7 +171,7 @@ const Peer = window.Peer;
 
     /*add s maruyama_test*/
       //localVideo.getVideoTracks()[0].onended = evt => {
-      room.getDisplayMedia()[0].onended () => {
+      room.getDisplayMedia()[0].onended = () => {
         messages.textContent += '=== onended ===\n';
 //        room.replaceStream(localStream);
       };
