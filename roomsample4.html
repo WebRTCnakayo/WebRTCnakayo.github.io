@@ -167,6 +167,11 @@ const Peer = window.Peer;
         const mediaStream = await navigator.mediaDevices.getDisplayMedia({ video: true });
         room.replaceStream(mediaStream);
       }());
+      /**/
+      room.addEventListener('suspend', () => {
+        messages.textContent += '=== suspend Listener ===\n';
+      });
+      /**/
     });
 
     /*add s maruyama_test*/
