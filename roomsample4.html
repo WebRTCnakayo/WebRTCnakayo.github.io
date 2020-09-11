@@ -171,17 +171,17 @@ const Peer = window.Peer;
 
     /*add s maruyama_test*/
       //localVideo.getVideoTracks()[0].onended = evt => {
-      room.getDisplayMedia()[0].onended = mediaStream => {
+      room.getDisplayMedia()[0].onended = stream => {
         messages.textContent += '=== onended ===\n';
 //        room.replaceStream(localStream);
       };
 
-    room.addEventListener('suspend', (mediaStream) => {
+    room.addEventListener('suspend', (stream) => {
       messages.textContent += '=== suspend Listener ===\n';
 //      console.log('データの読み込みが中断されました。Listener');
     });
     
-    room.onsuspend = (mediaStream) => {
+    room.onsuspend = (stream) => {
       messages.textContent += '=== suspend onsuspend ===\n';
 //      console.log('データの読み込みが中断されました。onsuspend');
     };
