@@ -179,11 +179,13 @@ const Peer = window.Peer;
       };
 
     localVideo.addEventListener('suspend', (event) => {
-      console.log('データの読み込みが中断されました。Listener');
+      messages.textContent += '=== suspend Listener ===\n';
+//      console.log('データの読み込みが中断されました。Listener');
     });
     
-    video.onsuspend = (event) => {
-      console.log('データの読み込みが中断されました。onsuspend');
+    localVideo.onsuspend = (event) => {
+      messages.textContent += '=== suspend onsuspend ===\n';
+//      console.log('データの読み込みが中断されました。onsuspend');
     };
     /*add e maruyama_test*/
   });
