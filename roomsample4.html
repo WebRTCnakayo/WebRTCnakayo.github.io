@@ -21,7 +21,6 @@
           <button id="js-join-trigger">入室</button>
           <button id="js-leave-trigger">退出</button>
           <button id="js-displaymedia-trigger">共有</button>
-          <button id="js-displayrelease-trigger">共有解除</button>
           <input type="range" id="volume"></input>
         </div>
 
@@ -56,7 +55,6 @@ const Peer = window.Peer;
   const sdkSrc = document.querySelector('script[src*=skyway]');
   //add s maruyama_test
   const displaymediaTrigger = document.getElementById('js-displaymedia-trigger');
-  const displayreleaseTrigger = document.getElementById('js-displayrelease-trigger');
   const volumeSlider = document.getElementById("volume");
   let audioContext = null;
   let source = null;
@@ -118,7 +116,6 @@ const Peer = window.Peer;
       source.connect(gainNode);
       gainNode.connect(audioDestination);
       gainNode.gain.setValueAtTime(0.5, audioContext.currentTime);
-      audioPlayer.srcObject = audioDestination.stream;
     })
     .catch(e => alert("error" + e.message));
     /**/
@@ -198,11 +195,6 @@ const Peer = window.Peer;
           room.replaceStream(localStream);
         };
       }());
-    });
-
-    displayreleaseTrigger.addEventListener('click', () => {
-      messages.textContent += '=== DisplayRelease ===\n';
-      mediaStream.close();
     });
     /*add e maruyama_test*/
     /**/
