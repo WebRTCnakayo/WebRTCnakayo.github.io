@@ -105,7 +105,11 @@ const Peer = window.Peer;
     }
     /**/
     navigator.mediaDevices
-    .getUserMedia({ audio: true })
+    .getUserMedia({
+      audio: true,
+      echoCancellation: true,
+      noiseSuppression: true
+    })
     .then(stream => {
       audioContext = new (window.AudioContext || window.webkitAudioContext)();
       source = audioContext.createMediaStreamSource(
