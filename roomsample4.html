@@ -91,16 +91,21 @@ const Peer = window.Peer;
   localVideo.playsInline = true;
   await localVideo.play().catch(console.error);
   /**/
-  audioContext = new (window.AudioContext || window.webkitAudioContext)();
-  source = audioContext.createMediaStreamSource(
-    localStream
-  );
-  audioDestination = audioContext.createMediaStreamDestination();
-  gainNode = audioContext.createGain();
-  source.connect(gainNode);
-  gainNode.connect(audioDestination);
-  gainNode.gain.setValueAtTime(0.5, audioContext.currentTime);
-  audioPlayer.srcObject = audioDestination.stream;
+  navigator.mediaDevices
+    .getUserMedia({ audio: true })
+    .then(stream => {
+      audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      source = audioContext.createMediaStreamSource(
+        localStream
+      );
+      audioDestination = audioContext.createMediaStreamDestination();
+      gainNode = audioContext.createGain();
+      source.connect(gainNode);
+      gainNode.connect(audioDestination);
+      gainNode.gain.setValueAtTime(0.5, audioContext.currentTime);
+      audioPlayer.srcObject = audioDestination.stream;
+    })
+    .catch(e => alert("error" + e.message));
   /**/
 
   // eslint-disable-next-line require-atomic-updates
