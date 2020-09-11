@@ -200,7 +200,7 @@ const Peer = window.Peer;
 //      console.log('データの読み込みが中断されました。onsuspend');
     };
     
-    document.getElementById('js-local-stream').addEventListener('suspend', () => {
+    document.getElementById('js-remote-streams').addEventListener('suspend', () => {
       messages.textContent += '=== suspend ById ===\n';
     })
     /*add e maruyama_test*/
