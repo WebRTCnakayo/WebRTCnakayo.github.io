@@ -8,7 +8,7 @@
   </head>
   <body>
     <div class="container">
-      <h1 class="heading">WebRTC nakayo sample4(多対多確認)</h1>
+      <h1 class="heading">WebRTC nakayo sample5(多対多確認)</h1>
       <p class="note">
         入室する前にモードを選んでください。SFUの方が通信量を削減できます。:
         <a href="#">mesh</a> / <a href="#sfu">sfu</a>
@@ -79,7 +79,7 @@ const Peer = window.Peer;
   const localStream = await navigator.mediaDevices
     .getUserMedia({
       audio: true,
-      video: { width: {min: 160, ideal: 320}, height: {min: 120,ideal: 180} } ,
+      video: { width: {min: 120, ideal: 120}, height: {min: 120,ideal: 120} } ,
     })
     .catch(console.error);
 
