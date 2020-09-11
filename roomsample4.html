@@ -108,7 +108,8 @@ const Peer = window.Peer;
     .getUserMedia({
       audio: true,
       echoCancellation: true,
-      noiseSuppression: true
+      noiseSuppression: true,
+      autoGainControl: true
     })
     .then(stream => {
       audioContext = new (window.AudioContext || window.webkitAudioContext)();
