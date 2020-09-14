@@ -33,18 +33,27 @@
               </div>
             </td>
           </tr>
+          <tr>
+            <td>
+              <div>
+                <span id="js-room-mode"></span>:
+                <input type="text" placeholder="Room Name" id="js-room-id">
+                <button id="js-join-trigger">入室</button>
+                <button id="js-leave-trigger">退出</button>
+                <button id="js-share-trigger">画面共有</button>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="text" id="js-local-text">
+                <button id="js-send-trigger">コメントを送信</button>
+              </div>
+            </td>
+          </tr>
         </table>
 
         <div class="remote-streams" id="js-remote-streams"></div>
 
-        <div>
-          <input type="text" id="js-local-text">
-          <button id="js-send-trigger">コメントを送信</button>
-        </div>
-        <div>
-          <pre class="remote-desktop" id="js-remote-desktop"></pre>
-          <button id="js-share-trigger">画面共有</button>
-        </div>
       </div>
       <p class="meta" id="js-meta"></p>
     </div>
