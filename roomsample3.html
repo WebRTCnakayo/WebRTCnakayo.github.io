@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>WebRTC nakayo sample3</title>
     <link rel="stylesheet" href="../_shared/style.css">
+    <style>
+      #messagebox {
+        height:200px;
+        width:300px;
+        overflow-y:auto;
+        outline:solid 1px #c0c0c0;
+      }
+    </style>
   </head>
   <body>
     <div class="container">
@@ -22,7 +30,7 @@
               </div>
             </td>
             <td height="200" width="300">
-              <div style="height:200px; width:300px; overflow-y:auto; outline: solid 1px #c0c0c0; filter: drop-shadow(10px 10px 10px rgba(0,0,0,0.6));">
+              <div id="messagebox">
                 <pre class="messages" id="js-messages"></pre>
               </div>
             </td>
