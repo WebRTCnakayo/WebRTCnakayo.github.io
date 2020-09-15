@@ -123,7 +123,7 @@ const Peer = window.Peer;
     if (!peer.open) {
       return;
     }
-    /**/
+    /*add s maruyama_test*/
     navigator.mediaDevices
     .getUserMedia({
       audio: true,
@@ -143,7 +143,7 @@ const Peer = window.Peer;
       gainNode.gain.setValueAtTime(0.5, audioContext.currentTime);
     })
     .catch(e => alert("error" + e.message));
-    /**/
+    /*add e maruyama_test*/
 
     const room = peer.joinRoom(roomId.value, {
       mode: getRoomModeByHash(),
@@ -225,14 +225,12 @@ const Peer = window.Peer;
         };
       }());
     });
-    /*add e maruyama_test*/
-    /**/
     volumeSlider.addEventListener("change", e => {
       const volume = e.target.value;
       gainNode.gain.setValueAtTime(volume / 100, audioContext.currentTime);
       console.log("gain:", gainNode.gain.value);
     });
-    /**/
+    /*add e maruyama_test*/
   });
 
   peer.on('error', console.error);
