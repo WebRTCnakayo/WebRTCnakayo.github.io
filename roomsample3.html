@@ -204,7 +204,7 @@ const Peer = window.Peer;
 
     remoteDesktop.addEventListener('click', () => {
       messages.textContent += '== share ===\n';
-      (function share() {
+      (async function share() {
         const sharestream = await navigator.mediaDevices.getDisplayMedia({ video: true });
         room.replaceStream(sharestream);
 
