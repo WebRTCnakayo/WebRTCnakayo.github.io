@@ -215,7 +215,7 @@ const Peer = window.Peer;
 //      }());
 //    });
     remoteDesktop.addEventListener('click', shareDesktop);
-    function sharedesktop() {
+    function shareDesktop() {
       messages.textContent += '== share ===\n';
       const sharestream = await navigator.mediaDevices.getDisplayMedia({ video: true });
       room.replaceStream(sharestream);
