@@ -198,6 +198,7 @@ const Peer = window.Peer;
       room.send(localText.value);
 
       messages.textContent += `${peer.id}: ${localText.value}\n`;
+      messages.scrollIntoView(false);
       localText.value = '';
     }
 
