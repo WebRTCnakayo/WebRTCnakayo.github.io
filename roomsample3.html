@@ -145,10 +145,12 @@ const Peer = window.Peer;
     });
 
     room.once('open', () => {
-      messages.textContent += '=== You joined ===\n';
+//      messages.textContent += '=== You joined ===\n';
+      addMessage('=== You joined ===\n');
     });
     room.on('peerJoin', peerId => {
-      messages.textContent += `=== ${peerId} joined ===\n`;
+//      messages.textContent += `=== ${peerId} joined ===\n`;
+      addMessage(`=== ${peerId} joined ===\n`);
     });
 
     // Render remote stream for new peer join in the room
@@ -164,7 +166,8 @@ const Peer = window.Peer;
 
     room.on('data', ({ data, src }) => {
       // Show a message sent to the room and who sent
-      messages.textContent += `${src}: ${data}\n`;
+//      messages.textContent += `${src}: ${data}\n`;
+      addMessage(`${src}: ${data}\n`);
     });
 
     // for closing room members
@@ -176,13 +179,15 @@ const Peer = window.Peer;
       remoteVideo.srcObject = null;
       remoteVideo.remove();
 
-      messages.textContent += `=== ${peerId} left ===\n`;
+//      messages.textContent += `=== ${peerId} left ===\n`;
+      addMessage(`=== ${peerId} left ===\n`);
     });
 
     // for closing myself
     room.once('close', () => {
       sendTrigger.removeEventListener('click', onClickSend);
-      messages.textContent += '== You left ===\n';
+//      messages.textContent += '== You left ===\n';
+      addMessage('== You left ===\n');
       Array.from(remoteVideos.children).forEach(remoteVideo => {
         remoteVideo.srcObject.getTracks().forEach(track => track.stop());
         remoteVideo.srcObject = null;
@@ -197,8 +202,9 @@ const Peer = window.Peer;
       // Send message to all of the peers in the room via websocket
       room.send(localText.value);
 
-      messages.textContent += `${peer.id}: ${localText.value}\n`;
-      messages.scrollIntoView(false);
+//      messages.textContent += `${peer.id}: ${localText.value}\n`;
+//      messages.scrollIntoView(false);
+      addMessage(`${peer.id}: ${localText.value}\n`);
       localText.value = '';
     }
 
@@ -209,13 +215,18 @@ const Peer = window.Peer;
         room.replaceStream(sharestream);
 
         sharestream.getVideoTracks()[0].onended = evt => {
-          messages.textContent += '== share end ===\n';
+//          messages.textContent += '== share end ===\n';
+          addMessage('== share end ===\n');
           room.replaceStream(localStream);
         };
       }());
     });
   });
 
+  function addMessage(text) {
+    messages.textContent += text;
+    messages.scrollIntoView(false);
+  }
 //  remoteDesktop.addEventListener('click', () => {
 //    messages.textContent += '== share ===\n';
 //    if (ss.isScreenShareAvailable() === false) {
