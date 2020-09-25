@@ -233,6 +233,13 @@ const Peer = window.Peer;
     messages.textContent += timestamp;
   }
 
+  function toDoubleDigits(num) {
+    if(num.length === 1) {
+      num = '0' + num;
+    }
+    return num;
+  }
+
   peer.on('error', console.error);
 })();
 
