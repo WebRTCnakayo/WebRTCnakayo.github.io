@@ -202,7 +202,7 @@ const Peer = window.Peer;
     }
 
     remoteDesktop.addEventListener('click', () => {
-      messages.textContent += '== share ===\n';
+      addMessage('== share ===\n');
       (async function share() {
         const sharestream = await navigator.mediaDevices.getDisplayMedia({ video: true });
         room.replaceStream(sharestream);
@@ -216,33 +216,22 @@ const Peer = window.Peer;
   });
 
   function addMessage(text) {
+    addMessageTime();
     messages.textContent += text;
     messages.scrollIntoView(false);
   }
-//  remoteDesktop.addEventListener('click', () => {
-//    messages.textContent += '== share ===\n';
-//    if (ss.isScreenShareAvailable() === false) {
-//      alert('Screen Share cannot be used. Please install the Chrome extension.');
-//      return;
-//    }
-//
-//    ss.start({
-//      width:     $('#Width').val(),
-//      height:    $('#Height').val(),
-//      frameRate: $('#FrameRate').val(),
-//    })
-//      .then(sstream => {
-//        var _SCTrack = sstream.getVideoTracks()[0];
-//        localStream.addTrack(_SCTrack);
-//        }
-//      })
-//      .catch(error => {
-//        messages.textContent += '== error ===\n';
-//      });
-//    (async function share() {
-//      const sharestream = await navigator.mediaDevices.getDisplayMedia({ video: true });
-//    }());
-//  });
+
+  var now = new Date();
+  function addMessageTime() {
+    var year = now.getFullYear();
+    var month = now.getMonth() + 1;
+    var date = now.getDate();
+    var hour = now.getHours();
+    var min = now.getMinutes();
+    var sec = now.getSeconds();
+    var timestamp = year + '/' + month + '/' + date + ' ' + hour + ' ' + min + ' ' + sec;
+    messages.textContent += timestamp;
+  }
 
   peer.on('error', console.error);
 })();
