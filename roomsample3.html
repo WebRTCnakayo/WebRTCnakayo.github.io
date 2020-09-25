@@ -224,12 +224,12 @@ const Peer = window.Peer;
   var now = new Date();
   function addMessageTime() {
     var year = now.getFullYear();
-    var month = now.getMonth() + 1;
-    var date = now.getDate();
-    var hour = now.getHours();
-    var min = now.getMinutes();
-    var sec = now.getSeconds();
-    var timestamp = year + '/' + month + '/' + date + ' ' + hour + ' ' + min + ' ' + sec;
+    var month = toDoubleDigits(now.getMonth() + 1);
+    var date = toDoubleDigits(now.getDate());
+    var hour = toDoubleDigits(now.getHours());
+    var min = toDoubleDigits(now.getMinutes());
+    var sec = toDoubleDigits(now.getSeconds());
+    var timestamp = year + '/' + month + '/' + date + ' ' + hour + ':' + min + ':' + sec + '|';
     messages.textContent += timestamp;
   }
 
